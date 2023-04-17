@@ -16,6 +16,12 @@ export interface Appointment {
         return this.props.endsAt
     }
     constructor(props: AppointmentProps){
+        const {startsAt, endsAt } = props
+
+        if(endsAt <= startsAt){
+            throw new Error('Invalid end date ')
+        }
+
         this.props =props
     }
    }
